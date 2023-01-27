@@ -16,7 +16,7 @@
  ### 만든 함수 
  ```
  def popular_count():  # 함수 선언
-    URL = 'https://api.themoviedb.org/3/movie/popular?  api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR' 
+    URL = 'https://api.themoviedb.org/3/movie/popular?  api_key=?&language=ko-KR' 
     # popular데이터를 한국어와 한국지역에서 불러옴
 
     response = requests.get(URL).json() 
@@ -55,7 +55,7 @@
 ### 만든 함수
 ```
 def vote_average_movies():  # 함수 선언
-    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR'
+    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=?&language=ko-KR&region=KR'
     # 인기있는 영화를 API key를 사용하여 불러옴
     response = requests.get(URL).json()
     answer = [] # 평점이 8점 넘는 영화만 저장할 리스트 생성
@@ -99,7 +99,7 @@ sort와 달리 sorted는 변수에 정렬된 값을 할당하여야 그 값이 �
 ```
 def ranking():      # 함수 선언
     ranking = []    # 평점이 높은 순서로 5개의 영화를 저장할 리스트 생성
-    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR'
+    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=?&language=ko-KR&region=KR'
     # 인기 있는 영화를 API key를 사용하여 불러옴
     response = requests.get(URL).json()
     li = response['results'] # li에 response중 results에 있는 값을 저장
@@ -141,12 +141,12 @@ url을 통하여 정보를 가져오는 과정에서 한번만 사용하는 것�
 def recommendation(title):
      
     li = []
-    URL = f'https://api.themoviedb.org/3/search/movie?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR&page=1&include_adult=false&query={title}'
+    URL = f'https://api.themoviedb.org/3/search/movie?api_key=?&language=ko-KR&region=KR&page=1&include_adult=false&query={title}'
     response = requests.get(URL).json()
     # 입력한 영화 제목에 맞추어 값을 가져옴
     try:
         id = response['results'][0]['id'] # 가져온 값에서 id값을 id라는 변수에 저장
-        recomm_URL = f'https://api.themoviedb.org/3/movie/{id}/recommendations?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR&page=1' # 그 id 값에 맞추어 추천영화 반환
+        recomm_URL = f'https://api.themoviedb.org/3/movie/{id}/recommendations?api_key=?&language=ko-KR&region=KR&page=1' # 그 id 값에 맞추어 추천영화 반환
     except IndexError: # 만약 없다면 None 반환
         return None
     
@@ -176,12 +176,12 @@ def recommendation(title):
 ### 만든 함수 
 ```
 def credits(title):
-    URL = f'https://api.themoviedb.org/3/search/movie?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR&page=1&include_adult=false&query={title}' # 입력한 영화 제목에 맞는 정보를 불러옴
+    URL = f'https://api.themoviedb.org/3/search/movie?api_key=?&language=ko-KR&region=KR&page=1&include_adult=false&query={title}' # 입력한 영화 제목에 맞는 정보를 불러옴
     response = requests.get(URL).json()
     answer = {'cast' : [], 'directing': []} # 문제에서 요구하는 출력 값에 맞추는 변수 생성
     try:
         id = response['results'][0]['id'] # 입력한 값의 id값을 id라는 변수에 할당
-        credict_URL = f'https://api.themoviedb.org/3/movie/{id}/credits?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR'
+        credict_URL = f'https://api.themoviedb.org/3/movie/{id}/credits?api_key=?&language=ko-KR&region=KR'
     except IndexError:
         return None # id값에 맞는 영화의 credict 정보를 가져옴
     # 여기에 코드를 작성합니다.  

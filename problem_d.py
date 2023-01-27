@@ -5,12 +5,12 @@ from pprint import pprint
 def recommendation(title):
      
     li = []
-    URL = f'https://api.themoviedb.org/3/search/movie?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR&page=1&include_adult=false&query={title}'
+    URL = f'https://api.themoviedb.org/3/search/movie?api_key=?&language=ko-KR&region=KR&page=1&include_adult=false&query={title}'
     response = requests.get(URL).json()
     
     try:
         id = response['results'][0]['id']
-        recomm_URL = f'https://api.themoviedb.org/3/movie/{id}/recommendations?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR&page=1'
+        recomm_URL = f'https://api.themoviedb.org/3/movie/{id}/recommendations?api_key=?&language=ko-KR&region=KR&page=1'
     except IndexError:
         return None
     

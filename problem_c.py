@@ -4,7 +4,7 @@ from pprint import pprint
 
 def ranking():
     ranking = []
-    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR'
+    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=?=ko-KR&region=KR'
     response = requests.get(URL).json()
     li = response['results']
     li = sorted(li , key= lambda x: x['vote_average'], reverse = True)

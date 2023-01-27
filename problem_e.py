@@ -3,12 +3,12 @@ from pprint import pprint
 import ast
 
 def credits(title):
-    URL = f'https://api.themoviedb.org/3/search/movie?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR&page=1&include_adult=false&query={title}'
+    URL = f'https://api.themoviedb.org/3/search/movie?api_key=?&language=ko-KR&region=KR&page=1&include_adult=false&query={title}'
     response = requests.get(URL).json()
     answer = {'cast' : [], 'directing': []}
     try:
         id = response['results'][0]['id']
-        credict_URL = f'https://api.themoviedb.org/3/movie/{id}/credits?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR'
+        credict_URL = f'https://api.themoviedb.org/3/movie/{id}/credits?api_key=?&language=ko-KR&region=KR'
     except IndexError:
         return None
     # 여기에 코드를 작성합니다.  

@@ -3,7 +3,7 @@ from pprint import pprint
 
 
 def vote_average_movies():
-    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=b75123c6e5d59d8072f7aeb3cabcf263&language=ko-KR&region=KR'
+    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=?&language=ko-KR&region=KR'
     response = requests.get(URL).json()
     answer = []
     for i in response['results']:
